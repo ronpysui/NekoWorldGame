@@ -10,6 +10,7 @@ public class PickUpFunction : MonoBehaviour
     [SerializeField]private float timeSpeed;
     [SerializeField]private float maxTime;
     [SerializeField]private float impulse;
+    public InventoryController invscript;
 
     private void OnTriggerStay2D(Collider2D other){
         if(other.gameObject.tag=="Player"){
@@ -20,7 +21,10 @@ public class PickUpFunction : MonoBehaviour
                 timeElapsed+=timeSpeed*Time.deltaTime;
             }
             else if(timeElapsed>=maxTime){
-                Destroy(gameObject);
+                invscript.items.Add(gameObject);
+                invscript.itemContainer[gameObject.name]+=1;
+                Debug.Log(invscript.itemContainer[gameObject.name]);
+                gameObject.SetActive(false);
             }
         }
     }
