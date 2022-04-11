@@ -7,11 +7,21 @@ TagManager:
   - Enemy
   - Sprint Icon
   - milk
+  - InvSlot_0
+  - InvSlot_1
+  - InvSlot_2
+  - InvSlot_3
+  - InvSlot_4
+  - InvSlot_0_Quantity
+  - InvSlot_1_Quantity
+  - InvSlot_2_Quantity
+  - InvSlot_3_Quantity
+  - InvSlot_4_Quantity
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Items
   - Water
   - UI
   - groundLayer
@@ -43,4 +53,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Items
+    uniqueID: 2146787499
     locked: 0

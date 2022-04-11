@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,22 +11,58 @@ public class PickUpFunction : MonoBehaviour
     [SerializeField]private float timeSpeed;
     [SerializeField]private float maxTime;
     [SerializeField]private float impulse;
+    public bool isStackable;
     public InventoryController invscript;
+    public Sprite spriteImage;
+    public int count=0;
 
-    private void OnTriggerStay2D(Collider2D other){
-        if(other.gameObject.tag=="Player"){
+    private async void OnTriggerStay2D(Collider2D other){
+        if(invscript.invCheck[0]==false&&invscript.invCheck[1]==false&&invscript.invCheck[2]==false&&invscript.invCheck[3]==false&&invscript.invCheck[4]==false){
+            invscript.canCollide=false;
+        }
+        else{
+            invscript.canCollide=true;
+        }
+        if(other.gameObject.tag=="Player"&&invscript.canCollide==true){
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0,impulse),ForceMode2D.Impulse);
             transform.position=Vector2.Lerp(transform.position,player.transform.position,translateObj*Time.deltaTime);
-            Debug.Log("truecollide");
             if(timeElapsed<maxTime){
                 timeElapsed+=timeSpeed*Time.deltaTime;
             }
             else if(timeElapsed>=maxTime){
-                invscript.items.Add(gameObject);
-                invscript.itemContainer[gameObject.name]+=1;
-                Debug.Log(invscript.itemContainer[gameObject.name]);
-                gameObject.SetActive(false);
+                if(isStackable==false){//if item is not stackable
+                    invscript.nonStackableItemsContainer[gameObject.name]+=1;
+                    Debug.Log(invscript.nonStackableItemsContainer[gameObject.name]);
+                    gameObject.SetActive(false);
+                    for(int i=0;i<invscript.invCheck.Count;i++){
+                        if(invscript.invCheck[i]==true){
+                            invscript.items.Add(gameObject.name);
+                            GameObject.FindWithTag("InvSlot_"+i.ToString()).GetComponent<UnityEngine.UI.Image>().color=new Color32(255,255,255,255);
+                            GameObject.FindWithTag("InvSlot_"+i.ToString()).GetComponent<UnityEngine.UI.Image>().sprite=spriteImage;
+                            invscript.invCheck[i]=false;
+                            break;
+                        }
+                    }
+                }
+                else if(isStackable){//if item is stackable
+                    invscript.StackableItemsContainer[gameObject.name]+=1;
+                    gameObject.SetActive(false);
+                    for(int a=0;a<invscript.invCheck.Count;a++){
+                        if(invscript.invCheck[a]==true){
+                            if(invscript.StackableItemsContainer[gameObject.name]==1){
+                                GameObject.FindWithTag("InvSlot_"+a.ToString()).GetComponent<UnityEngine.UI.Image>().color=new Color32(255,255,255,255);
+                                GameObject.FindWithTag("InvSlot_"+a.ToString()).GetComponent<UnityEngine.UI.Image>().sprite=spriteImage;
+                                invscript.items.Add(gameObject.name);
+                                invscript.invCheck[a]=false;
+                            }
+                            break;
+                        }
+                    }
+                }
             }
+        }
+        else{
+            Debug.Log("cannot pick up items because slots are full");
         }
     }
 }
