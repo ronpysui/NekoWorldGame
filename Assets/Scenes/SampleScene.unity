@@ -703,7 +703,7 @@ GameObject:
   - component: {fileID: 428952995}
   - component: {fileID: 428952994}
   m_Layer: 5
-  m_Name: InvSlot_3
+  m_Name: InvSlot_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -726,7 +726,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -90, y: -268.54163}
+  m_AnchoredPosition: {x: 90, y: -268.54163}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &428952994
@@ -802,7 +802,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 90, y: -268.54163}
+  m_AnchoredPosition: {x: -90, y: -268.54163}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &440248260
@@ -1323,7 +1323,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 180, y: -268.54163}
+  m_AnchoredPosition: {x: 0, y: -268.54163}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &634307003
@@ -2104,6 +2104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90a69696330ec4409d98ccf587a0ba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventorySlots: []
   items: []
   invCheck: 0101010101
   canCollide: 1
@@ -2681,7 +2682,7 @@ GameObject:
   - component: {fileID: 1579060744}
   - component: {fileID: 1579060743}
   m_Layer: 5
-  m_Name: InvSlot_4
+  m_Name: InvSlot_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2704,7 +2705,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -180, y: -268.54163}
+  m_AnchoredPosition: {x: 180, y: -268.54163}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1579060743
@@ -2780,7 +2781,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -268.54163}
+  m_AnchoredPosition: {x: -180, y: -268.54163}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1640004350
