@@ -10,9 +10,9 @@ public class InventoryController: MonoBehaviour
     public List<bool>invCheck;
     public bool canCollide;
     public Dictionary<string,int>nonStackableItemsContainer=new Dictionary<string, int>(){
-        {"pizza",0}
     };
     public Dictionary<string,int>StackableItemsContainer=new Dictionary<string, int>(){
+        {"pumkinseed",0},
         {"milk",0},
     };
     private void Start(){

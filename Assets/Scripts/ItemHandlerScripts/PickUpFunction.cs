@@ -6,11 +6,11 @@ using UnityEngine;
 public class PickUpFunction : MonoBehaviour
 {
     [SerializeField]GameObject player;
-    [SerializeField]private float translateObj;
-    [SerializeField]private float timeElapsed;
-    [SerializeField]private float timeSpeed;
-    [SerializeField]private float maxTime;
-    [SerializeField]private float impulse;
+    [SerializeField]private float translateObj=4;
+    [SerializeField]private float timeElapsed=0;
+    [SerializeField]private float timeSpeed=5.2f;
+    [SerializeField]private float maxTime=1.3f;
+    [SerializeField]private float impulse=0.3f;
     public bool isStackable;
     public InventoryController invscript;
     public Sprite spriteImage;
