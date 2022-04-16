@@ -7,6 +7,7 @@ using UnityEngine;
 public class InventoryController: MonoBehaviour
 {
     public List<GameObject>inventorySlots=new List<GameObject>();
+    public List<Sprite>itemSprites=new List<Sprite>();
     public Sprite invSelectSprite;
     public Sprite invSprite;
     public List<string>items;
@@ -26,8 +27,8 @@ public class InventoryController: MonoBehaviour
             for(int i=0;i<items.Count;i++){//loop
                 if(StackableItemsContainer.ContainsKey(items[i])){
                     GameObject.FindWithTag("InvSlot_"+i+"_Quantity").GetComponent<TextMeshProUGUI>().text=StackableItemsContainer[items[i]].ToString();
+                    //update each inventory slot
                 }
-                //update each inventory slot
             }
         }
         //0-
@@ -46,6 +47,7 @@ public class InventoryController: MonoBehaviour
                 scrollposition++;
             }
         }
+        //-0
         else if(Input.GetAxis("Mouse ScrollWheel")<0f){
             if(prevscrollposition>1){
                 scrollposition--;

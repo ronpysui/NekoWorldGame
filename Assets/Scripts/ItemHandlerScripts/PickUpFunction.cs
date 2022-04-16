@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class PickUpFunction : MonoBehaviour
 {
-    [SerializeField]GameObject player;
+    public GameObject player;
     [SerializeField]private float translateObj=4;
     [SerializeField]private float timeElapsed=0;
     [SerializeField]private float timeSpeed=5.2f;
     [SerializeField]private float maxTime=1.3f;
     [SerializeField]private float impulse=0.3f;
+    public bool isPickable;
     public bool isStackable;
     public InventoryController invscript;
     public Sprite spriteImage;
@@ -23,7 +24,7 @@ public class PickUpFunction : MonoBehaviour
         else{
             invscript.canCollide=true;
         }
-        if(other.gameObject.tag=="Player"&&invscript.canCollide==true){
+        if(other.gameObject.tag=="Player"&&invscript.canCollide==true&&isPickable==true){
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0,impulse),ForceMode2D.Impulse);
             transform.position=Vector2.Lerp(transform.position,player.transform.position,translateObj*Time.deltaTime);
             if(timeElapsed<maxTime){
