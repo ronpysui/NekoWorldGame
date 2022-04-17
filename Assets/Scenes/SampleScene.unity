@@ -2599,7 +2599,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f4e1149b7c3c26d499ef2c37bf1448c5, type: 3}
   invSelectSprite: {fileID: 21300000, guid: 23b1f521215c0094280d8d957a452f6d, type: 3}
   invSprite: {fileID: 21300000, guid: 3a0ff7b692af8b445a084f9753493b3b, type: 3}
-  items: []
+  items:
+  - 
+  - 
+  - 
+  - 
+  - 
   invCheck: 0101010101
   canCollide: 1
   scrollposition: 1
