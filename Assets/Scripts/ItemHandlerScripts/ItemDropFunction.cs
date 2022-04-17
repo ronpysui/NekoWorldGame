@@ -77,9 +77,10 @@ public class ItemDropFunction : MonoBehaviour
                     new_item.GetComponent<PickUpFunction>().player=GameObject.Find("Player");
 
                     //edit components
-                    new_item.GetComponent<BoxCollider2D>().size=new Vector2(0.22f,0.277998f);
+                    new_item.GetComponent<BoxCollider2D>().size=new Vector2(0.2f,0.2f);
                     new_item.GetComponent<PickUpFunction>().isPickable=true;
                     new_item.GetComponent<SpriteRenderer>().sprite=Resources.Load<Sprite>("Sprites/Icons/"+invscript.items[invscript.scrollposition-2])as Sprite;
+                    new_item.GetComponent<SpriteRenderer>().sortingOrder=2;
 
                     //load sprite
                     new_item.GetComponent<PickUpFunction>().spriteImage=Resources.Load<Sprite>("Sprites/Icons/"+invscript.items[invscript.scrollposition-2])as Sprite;

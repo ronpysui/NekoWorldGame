@@ -34,7 +34,7 @@ public class PickUpFunction : MonoBehaviour
                 if(isStackable==false){//if item is not stackable
                     invscript.nonStackableItemsContainer[gameObject.name]+=1;
                     Debug.Log(invscript.nonStackableItemsContainer[gameObject.name]);
-                    //gameObject.SetActive(false);
+                    gameObject.SetActive(false);
 
                     for(int i=0;i<invscript.invCheck.Count;i++){
                         if(invscript.invCheck[i]==true){
@@ -49,7 +49,7 @@ public class PickUpFunction : MonoBehaviour
                 }
                 else if(isStackable){//if item is stackable
                     invscript.StackableItemsContainer[gameObject.name]+=1;
-                    //gameObject.SetActive(false);
+                    gameObject.SetActive(false);
 
                     for(int a=0;a<invscript.invCheck.Count;a++){
                         if(invscript.invCheck[a]==true){
