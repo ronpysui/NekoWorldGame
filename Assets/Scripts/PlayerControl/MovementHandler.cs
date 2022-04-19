@@ -8,6 +8,7 @@ public class MovementHandler : MonoBehaviour
     [SerializeField]float velocity_multiplyer;
     [SerializeField]float jump_force;
     [SerializeField]float jumpDelay;
+    public bool isfacingRight;
     private Animator animator;
     private float jumpStart=0f;
     public bool isGrounded;

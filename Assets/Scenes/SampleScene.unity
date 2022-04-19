@@ -2413,6 +2413,7 @@ MonoBehaviour:
   velocity_multiplyer: 2
   jump_force: 3
   jumpDelay: 1
+  isfacingRight: 0
   isGrounded: 0
   groundLayers:
     serializedVersion: 2
@@ -2464,6 +2465,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invscript: {fileID: 1229950685}
+  timeElapsed: 0
+  maxTime: 1
 --- !u!1 &1272081268
 GameObject:
   m_ObjectHideFlags: 0

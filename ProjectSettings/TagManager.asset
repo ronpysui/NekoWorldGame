@@ -17,6 +17,7 @@ TagManager:
   - InvSlot_2_Quantity
   - InvSlot_3_Quantity
   - InvSlot_4_Quantity
+  - new_item
   layers:
   - Default
   - TransparentFX
