@@ -14,6 +14,10 @@ public class ItemDropFunction : MonoBehaviour
         GameObject[]itemDropped;
         itemDropped=GameObject.FindGameObjectsWithTag("new_item");
 
+        foreach(GameObject freeze in itemDropped){
+            freeze.GetComponent<Rigidbody2D>().constraints=RigidbodyConstraints2D.FreezeRotation;
+        }
+
         if(isPressed==true){
             timeElapsed+=0.3f*Time.deltaTime;
             if(timeElapsed>=maxTime){
@@ -44,8 +48,12 @@ public class ItemDropFunction : MonoBehaviour
                     new_item.AddComponent<Rigidbody2D>();
                     new_item.AddComponent<SpriteRenderer>();
                     new_item.AddComponent<BoxCollider2D>();
+                    int canStandOnLayer=LayerMask.NameToLayer("canStandOn");
+                    new_item.layer=canStandOnLayer;
+
                     //edit components
-                    new_item.GetComponent<BoxCollider2D>().size=new Vector2(0.22f,0.277998f);
+                    new_item.GetComponent<BoxCollider2D>().offset=new Vector2(-0.001623809f,-0.1f);
+                    new_item.GetComponent<BoxCollider2D>().size=new Vector2(0.2f,0.01f);
                     new_item.tag="new_item";
 
                     //error in the sprite
@@ -64,8 +72,7 @@ public class ItemDropFunction : MonoBehaviour
                     new_item.GetComponent<PickUpFunction>().isStackable=true;
 
                     //position = player position
-                    new_item.transform.position=GameObject.Find("Player").transform.position;
-                    new_item.transform.position=GameObject.Find("Player").transform.position;
+                    new_item.transform.position=new Vector2(GameObject.Find("Player").transform.position.x+1,GameObject.Find("Player").transform.position.y);
 
                     //add impulse
                     //if(GameObject.Find("Player").transform.localScale=(1,1,1)){
@@ -96,6 +103,8 @@ public class ItemDropFunction : MonoBehaviour
                     new_item.AddComponent<Rigidbody2D>();
                     new_item.AddComponent<SpriteRenderer>();
                     new_item.AddComponent<BoxCollider2D>();
+                    int canStandOnLayer=LayerMask.NameToLayer("canStandOn");
+                    new_item.layer=canStandOnLayer;
 
                     //add scripts
                     new_item.GetComponent<PickUpFunction>().invscript=GameObject.Find("Player").GetComponent<InventoryController>();
@@ -103,7 +112,8 @@ public class ItemDropFunction : MonoBehaviour
 
                     //edit components
                     new_item.tag="new_item";
-                    new_item.GetComponent<BoxCollider2D>().size=new Vector2(0.2f,0.2f);
+                    new_item.GetComponent<BoxCollider2D>().offset=new Vector2(-0.001623809f,-0.1f);
+                    new_item.GetComponent<BoxCollider2D>().size=new Vector2(0.2f,0.01f);
                     new_item.GetComponent<SpriteRenderer>().sprite=Resources.Load<Sprite>("Sprites/Icons/"+invscript.items[invscript.scrollposition-2])as Sprite;
                     new_item.GetComponent<SpriteRenderer>().sortingOrder=2;
 
@@ -116,7 +126,8 @@ public class ItemDropFunction : MonoBehaviour
                     }
 
                     //new_item position = player position
-                    new_item.transform.position=GameObject.Find("Player").transform.position;
+                    new_item.transform.position=new Vector2(GameObject.Find("Player").transform.position.x+1,GameObject.Find("Player").transform.position.y);
+
                     //add impulse
                     new_item.GetComponent<Rigidbody2D>().AddForce(new Vector2(5,0),ForceMode2D.Impulse);
                 }

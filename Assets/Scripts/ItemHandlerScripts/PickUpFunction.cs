@@ -31,6 +31,7 @@ public class PickUpFunction : MonoBehaviour
                 timeElapsed+=timeSpeed*Time.deltaTime;
             }
             else if(timeElapsed>=maxTime){
+                GetComponent<BoxCollider2D>().enabled=false;
                 if(isStackable==false){//if item is not stackable
                     invscript.nonStackableItemsContainer[gameObject.name]+=1;
                     Debug.Log(invscript.nonStackableItemsContainer[gameObject.name]);

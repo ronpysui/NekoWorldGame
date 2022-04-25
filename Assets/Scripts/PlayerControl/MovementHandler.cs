@@ -12,7 +12,8 @@ public class MovementHandler : MonoBehaviour
     private Animator animator;
     private float jumpStart=0f;
     public bool isGrounded;
-    public LayerMask groundLayers;
+    public LayerMask canStandLayer;
+    public float raycasey;
 
     private void Start(){
         animator=GetComponent<Animator>();
@@ -25,8 +26,9 @@ public class MovementHandler : MonoBehaviour
     async void Update()
     {
         //is grounded
-        isGrounded=Physics2D.OverlapArea(new Vector2(transform.position.x-0.5f,transform.position.y-0.5f),
-        new Vector2(transform.position.x+0.5f,transform.position.y-0.5f),groundLayers);
+        isGrounded=Physics2D.OverlapArea(new Vector2(transform.position.x-0.5f,transform.position.y-raycasey),
+        new Vector2(transform.position.x+0.5f,transform.position.y-raycasey),canStandLayer);
+
         if(isGrounded==true){
             animator.SetBool("jump",false);
         }
@@ -37,11 +39,11 @@ public class MovementHandler : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.LeftShift)){
             animator.SetFloat("velocity multiplyer",velocity_multiplyer);
-            velocity=3.2f;
+            velocity=4.2f;
         }
         else if(Input.GetKeyUp(KeyCode.LeftShift)){
             animator.SetFloat("velocity multiplyer",1);
-            velocity=1.8f;
+            velocity=2.5f;
         }
         else if(Input.GetKeyDown(KeyCode.Space)&&Time.time>jumpStart){
             if(isGrounded==true){
