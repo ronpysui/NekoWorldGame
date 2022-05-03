@@ -18,6 +18,7 @@ TagManager:
   - InvSlot_3_Quantity
   - InvSlot_4_Quantity
   - new_item
+  - StandingOnObject
   layers:
   - Default
   - TransparentFX
